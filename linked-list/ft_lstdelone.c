@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 15:43:34 by eprieur           #+#    #+#             */
-/*   Updated: 2025/11/15 19:46:52 by eprieur          ###   ########.fr       */
+/*   Created: 2025/11/13 19:22:16 by eprieur           #+#    #+#             */
+/*   Updated: 2025/12/12 10:26:46 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int		l;
-
-	l = 0;
-	while (lst != NULL)
-	{
-		l++;
-		lst = lst->next;
-	}
-	return (l);
+	(*del)(lst->content);
+	free(lst);
 }

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 17:37:27 by eprieur           #+#    #+#             */
-/*   Updated: 2025/11/18 21:20:23 by eprieur          ###   ########.fr       */
+/*   Created: 2025/11/13 14:35:12 by eprieur           #+#    #+#             */
+/*   Updated: 2025/12/12 10:26:46 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*head;
-	t_list	*tmp;
-
-	head = *lst;
-	tmp = *lst;
-	while (tmp != NULL)
-	{
-		tmp = tmp->next;
-		(*del)(head->content);
-		free(head);
-		head = tmp;
-	}
-	*lst = NULL;
+	new->next = *lst;
+	*lst = new;
 }
+/*
+int	main(void)
+{
+	t_list	*List;
+
+	List = ft_lstnew(40);
+	ft_lstadd_front(&List, ft_lstnew(41));
+	ft_lstadd_front(&List, ft_lstnew(42));
+	printf("%i", printLst(List));
+	return (0);
+}
+*/

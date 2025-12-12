@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 19:22:16 by eprieur           #+#    #+#             */
-/*   Updated: 2025/11/15 20:09:23 by eprieur          ###   ########.fr       */
+/*   Created: 2025/11/14 17:37:27 by eprieur           #+#    #+#             */
+/*   Updated: 2025/12/12 10:26:46 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	(*del)(lst->content);
-	free(lst);
+	t_list	*head;
+	t_list	*tmp;
+
+	head = *lst;
+	tmp = *lst;
+	while (tmp != NULL)
+	{
+		tmp = tmp->next;
+		(*del)(head->content);
+		free(head);
+		head = tmp;
+	}
+	*lst = NULL;
 }

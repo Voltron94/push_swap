@@ -6,11 +6,11 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 18:13:05 by eprieur           #+#    #+#             */
-/*   Updated: 2025/11/18 22:38:10 by eprieur          ###   ########.fr       */
+/*   Updated: 2025/12/12 10:43:37 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static t_list	*lstnew_(void *content)
 {
