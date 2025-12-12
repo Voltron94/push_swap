@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/14 17:37:27 by eprieur           #+#    #+#             */
-/*   Updated: 2025/12/12 10:26:46 by eprieur          ###   ########.fr       */
+/*   Created: 2025/11/21 14:29:43 by eprieur           #+#    #+#             */
+/*   Updated: 2025/11/21 16:42:50 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_putchar(const char c)
 {
-	t_list	*head;
-	t_list	*tmp;
-
-	head = *lst;
-	tmp = *lst;
-	while (tmp != NULL)
-	{
-		tmp = tmp->next;
-		(*del)(head->content);
-		free(head);
-		head = tmp;
-	}
-	*lst = NULL;
+	write(1, &c, 1);
+	return (1);
 }

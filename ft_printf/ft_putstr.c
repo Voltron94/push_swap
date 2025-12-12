@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 13:47:48 by eprieur           #+#    #+#             */
-/*   Updated: 2025/12/12 11:15:11 by eprieur          ###   ########.fr       */
+/*   Created: 2025/11/21 14:30:05 by eprieur           #+#    #+#             */
+/*   Updated: 2025/11/22 01:10:35 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstnew(int content)
+int	ft_putstr(const char *str)
 {
-	t_list	*lst;
+	int	i;
 
-	lst = malloc(sizeof(t_list));
-	if (lst == 0)
-		return (0);
-	lst->content = content;
-	lst->next = 0;
-	return (lst);
+	i = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }
-/*
-int	main(void)
-{
-	int	nb;
-
-	nb = 42;
-	ft_lstnew(&nb);
-	return (0);
-}
-*/

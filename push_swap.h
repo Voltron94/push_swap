@@ -9,15 +9,17 @@ typedef struct s_list
 
 #include <unistd.h>
 #include <stdlib.h> //exit() compris
-#include <stdio.h>
+#include "ft_printf/ft_printf.h"
 
 /* --- Linked List --- */
 
 t_list				*ft_lstnew(int content);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_print_linked(t_list *lst);
 
 /* --- Utils --- */
 
-int	ft_atoi(const char *nptr);
+int					ft_atoi(const char *nptr);
 
 
 #endif

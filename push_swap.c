@@ -14,20 +14,25 @@ int	argv_check(char *s)
 	return (1);
 }
 
-void argv_node(int argc, char **argv, t_list *a)
+void fill_stack_a(int argc, char **argv, t_list **stack_a)
 {
-    while
+	int i;
+
+	i = 1;
+    while (i < argc)
+	{
+		ft_lstadd_back(&(*stack_a), ft_lstnew(ft_atoi(argv[i]))); 
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_list *a;
-    t_list *b;
+	t_list *stack_a;
 	int i;
 
 	i = 1;
-	a = NULL;
-    b = NULL;
+	stack_a = NULL;
 	if (argc == 1)  //aucun argument
 		return (0);
 	while (i < argc)
@@ -36,7 +41,7 @@ int	main(int argc, char **argv)
 			return (write(1, "error", 5));
 		i++;
 	}
-	a = ft_lstnew(ft_atoi(argv[1]));
-    argv_node(argc, argv, a);
-	printf("%d", a->content);
+    fill_stack_a(argc, argv, &stack_a);
+	ft_print_linked(stack_a);
+	// printf("%d", a->content);
 }
