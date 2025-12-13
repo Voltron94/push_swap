@@ -28,7 +28,8 @@ void fill_stack_a(int argc, char **argv, t_list **stack_a)
 
 int	main(int argc, char **argv)
 {
-	t_list *stack_a;
+	t_list *stack_a;	//doit etre ranger a la fin
+	//t_list *stack_b;	//sert de stockage temporaire
 	int i;
 
 	i = 1;

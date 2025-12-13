@@ -5,6 +5,7 @@ typedef struct s_list
 {
 	int			content;
 	struct s_list	*next;
+	struct s_list	*previous;
 }					t_list;
 
 #include <unistd.h>

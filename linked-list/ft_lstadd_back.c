@@ -3,12 +3,14 @@
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
     t_list *cursor;
+    t_list *tmp;
 
     cursor = *lst;
     if (cursor)
     {
-        while (cursor->next)
+        while (cursor->next) // != *lst
             cursor = cursor->next;
+        new->previous = cursor;
         cursor->next = new;
     }
     else if (!cursor)
