@@ -3,15 +3,19 @@
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
     t_list *cursor;
-    t_list *tmp;
+    t_list *head;
 
     cursor = *lst;
+    head = *lst;
     if (cursor)
     {
-        while (cursor->next) // != *lst
+        while (cursor->next != *lst && cursor->next) // != *lst
             cursor = cursor->next;
-        new->previous = cursor;
+        new->previous = cursor; //le previous de new est le noeux actuelle;
         cursor->next = new;
+        new->next = *lst; // on boucle ici
+        head->previous = new;       //on decale le previous, nouveau previous de la tete
+
     }
     else if (!cursor)
         *lst = new;
@@ -36,4 +40,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
     le double pointer va permettre de dereferencer *lst vers new
     le pointer lst va pointer vers une nouvelle adresse.
+    ft_printf("linked previous content : %i \n", new->previous->content);
+    ft_printf("linked previous content of head : %i \n", head->previous->content);
 */

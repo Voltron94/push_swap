@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
     fill_stack_a(argc, argv, &stack_a);
+	ft_lst_rotate(&stack_a);
 	ft_print_linked(stack_a);
 	// printf("%d", a->content);
 }
