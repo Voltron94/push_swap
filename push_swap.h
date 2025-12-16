@@ -18,10 +18,13 @@ t_list				*ft_lstnew(int content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_print_linked(t_list *lst);
 void				ft_lst_rotate(t_list **lst);
+char				*all_for_one(int argc, char **argv);
 
 /* --- Utils --- */
 
 int					ft_atoi(const char *nptr);
-
+char				*ft_strjoin(char *s1, char *s2);
+int 				ft_strlen(char *str);
+char				*ft_strdup(char *s);
 
 #endif

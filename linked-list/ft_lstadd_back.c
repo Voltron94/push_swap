@@ -13,9 +13,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
             cursor = cursor->next;
         new->previous = cursor; //le previous de new est le noeux actuelle;
         cursor->next = new;
-        new->next = *lst; // on boucle ici
+        new->next = head; // on boucle ici
         head->previous = new;       //on decale le previous, nouveau previous de la tete
-
     }
     else if (!cursor)
         *lst = new;
