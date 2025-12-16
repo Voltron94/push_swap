@@ -18,7 +18,7 @@ void fill_stack_a(int argc, char **argv, t_list **stack_a)
 {
 	int i;
 
-	i = 1;
+	i = 0;
     while (i < argc)
 	{
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i]))); 
@@ -26,10 +26,11 @@ void fill_stack_a(int argc, char **argv, t_list **stack_a)
 	}
 }
 
-char *all_for_one(int argc, char **argv)
+char **all_for_one(int argc, char **argv)
 {
 	int i;
 	char *ns;
+	char **ns_split;
 
 	i = 1;
 	ns = ft_strdup("");
@@ -38,19 +39,26 @@ char *all_for_one(int argc, char **argv)
 		ns = ft_strjoin(ns, argv[i]);
 		i++;
 	}
-	ft_printf("%s", ns);
-	return (ns);
+	ns_split = ft_split(ns, ' ');
+
+	// for (int i = 0;  ns_split[i]; i++)
+    // {
+    //     ft_printf("ns_split : %s \n", ns_split[i]);
+    // }
+
+	return (ns_split);
 }
 
 int	main(int argc, char **argv)
 {
-	t_list *stack_a;	//doit etre ranger a la fin
-	//t_list *stack_b;	//sert de stockage temporaire
+	t_list *stack_a;
+	//t_list *stack_b;	
+	char **argument;
 	int i;
 
 	i = 1;
 	stack_a = NULL;
-	if (argc == 1)  //aucun argument
+	if (argc == 1)
 		return (0);
 	while (i < argc)
 	{
@@ -58,10 +66,11 @@ int	main(int argc, char **argv)
 			return (write(1, "error", 5));
 		i++;
 	}
-
-    fill_stack_a(argc, argv, &stack_a);
-	all_for_one(argc, argv);
-	//ft_lst_rotate(&stack_a);
+	argument = all_for_one(argc, argv);
+	// for (int i = 0;  argument[i]; i++)
+    // {
+    //     ft_printf("argument : %s \n", argument[i]);
+    // }
+    fill_stack_a(ft_arg_len(argument), argument, &stack_a);
 	ft_print_linked(stack_a);
-	// printf("%d", a->content);
 }
