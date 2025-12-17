@@ -3,14 +3,14 @@
 
 typedef struct s_list
 {
-	int			content;
+	int				content;
 	struct s_list	*next;
 	struct s_list	*previous;
 }					t_list;
 
-#include <unistd.h>
-#include <stdlib.h> //exit() compris
-#include "ft_printf/ft_printf.h"
+# include "ft_printf/ft_printf.h"
+# include <stdlib.h> //exit() compris
+# include <unistd.h>
 
 /* --- Linked Base--- */
 
@@ -21,14 +21,15 @@ void				ft_lst_rotate(t_list **lst);
 
 /* --- Linked instruction --- */
 
-void	ft_sa(t_list **lst);
-void	ft_sb(t_list **lst);
+void				ft_sa(t_list **lst);
+void				ft_sb(t_list **lst);
+void				ft_ss(t_list **stack_a, t_list **stack_b);
 
 /* --- Utils --- */
 
 int					ft_atoi(const char *nptr);
 char				*ft_strjoin(char *s1, char *s2);
-int 				ft_strlen(char *str);
+int					ft_strlen(char *str);
 char				*ft_strdup(char *s);
 char				**ft_split(const char *s, char c);
 int					ft_arg_len(char **s);

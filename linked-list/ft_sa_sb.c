@@ -13,6 +13,8 @@ void	ft_sa(t_list **lst)
 	head = *lst;
 	second_node = head->next;
 	last_node = head->previous;
+	if (!lst || !(*lst))
+		return;
 	if (!head->next)
 	{
        	//ft_printf("error : can't swap a node with nothing\n");
@@ -51,6 +53,8 @@ void	ft_sb(t_list **lst)
 	head = *lst;
 	second_node = head->next;
 	last_node = head->previous;
+	if (!lst || !(*lst))
+		return;
 	if (!head->next)
     	return;	
 	else if (head->next->next == head)
@@ -73,4 +77,11 @@ void	ft_sb(t_list **lst)
 		*lst = second_node;
 		ft_printf("sb\n");
 	}
+}
+
+
+void	ft_ss(t_list **stack_a, t_list **stack_b)
+{
+	ft_sa(stack_a);
+	ft_sb(stack_b);
 }
