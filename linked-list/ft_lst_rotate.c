@@ -40,8 +40,6 @@ void	ft_lst_rotate(t_list **lst)
         /*      Redefinir le next avant la fin      */
         before_tail->next =  head;
     }
-
-
     *lst = tail;
 }
 

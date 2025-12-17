@@ -12,12 +12,17 @@ typedef struct s_list
 #include <stdlib.h> //exit() compris
 #include "ft_printf/ft_printf.h"
 
-/* --- Linked List --- */
+/* --- Linked Base--- */
 
 t_list				*ft_lstnew(int content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_print_linked(t_list *lst);
 void				ft_lst_rotate(t_list **lst);
+
+/* --- Linked instruction --- */
+
+void	ft_sa(t_list **lst);
+void	ft_sb(t_list **lst);
 
 /* --- Utils --- */
 

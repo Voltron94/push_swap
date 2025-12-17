@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 	while (i < argc)
 	{
 		if (!argv_check(argv[i]))
-			return (write(1, "error", 5));
+			return (write(2, "error", 5));
 		i++;
 	}
 	argument = all_for_one(argc, argv);
@@ -71,6 +71,7 @@ int	main(int argc, char **argv)
     // {
     //     ft_printf("argument : %s \n", argument[i]);
     // }
-    fill_stack_a(ft_arg_len(argument), argument, &stack_a);
+    fill_stack_a(ft_arg_len(argument), argument, &stack_a);	
+	ft_sa(&stack_a);
 	ft_print_linked(stack_a);
 }
