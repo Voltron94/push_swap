@@ -18,6 +18,8 @@ t_list				*ft_lstnew(int content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_print_linked(t_list *lst);
 void				ft_lst_rotate(t_list **lst);
+void				ft_pa(t_list **stack_a, t_list **stack_b);
+void				ft_pb(t_list **stack_a, t_list **stack_b);
 
 /* --- Linked instruction --- */
 

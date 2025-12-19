@@ -79,7 +79,6 @@ void	ft_sb(t_list **lst)
 	}
 }
 
-
 void	ft_ss(t_list **stack_a, t_list **stack_b)
 {
 	ft_sa(stack_a);

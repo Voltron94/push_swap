@@ -1,81 +1,102 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int count_word(const char *s, char ch)
+int	safe_malloc(char **ss, int pos, int len)
 {
-    int i;
-    int c;
-    int in_word;
+	int	i;
 
-    in_word = 0;
-    i = 0;
-    c = 0;
-    while (s[i])
-    {
-        if (in_word == 0 && s[i] != ch)
-        {
-            in_word = 1;
-            c++; //hehe
-        }
-        else if (in_word == 1 && s[i] == ch)
-        {
-            in_word = 0;
-        }
-        i++;
-    }
-    // printf("count word : %i\n", c);
-    return (c);
+	i = 0;
+	ss[pos] = malloc(len * sizeof(char));
+	if (!ss[pos])
+	{
+		while (i < pos)
+		{
+			free(ss[i++]);
+		}
+		free(ss);
+		return (1);
+	}
+	return (0);
 }
 
-static void ft_strlcpy(char *ns, const char *s, int len)
+static void	strlcpy_(char *dst, const char *src, size_t size)
 {
-    int i;
+	size_t	i;
 
-    i = 0;
-    while (i < len - 1)
-    {
-        ns[i] = s[i];
-        i++;
-    }
-    ns[i] = '\0';
+	i = 0;
+	while (i != size - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
 }
 
-static void claim_word(char **ns, const char *s, char lim)
+static int	count_word(const char *s, char c)
 {
-    int i;
-    int len;
+	int	i;
+	int	in_word;
+	int	count;
 
-    i = 0;
-    while (*s)
-    {
-        len = 0;
-        while (*s == lim && *s)
-            s++;
-        while (*s != lim && *s)
-        {
-            len++;
-            s++;
-        }
-        if(len)
-        {
-            ns[i] = malloc(len * sizeof(char));
-            ft_strlcpy(ns[i], s - len, len + 1);
-            i++;
-        }
-
-    }
-    ns[i] = NULL;
+	in_word = 0;
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (in_word == 0 && s[i] != c)
+		{
+			count++;
+			in_word = 1;
+		}
+		else if (in_word == 1 && !(s[i] != c))
+		{
+			in_word = 0;
+		}
+		i++;
+	}
+	return (count);
 }
 
-char	**ft_split(const char *s, char c)
+static int	claim_word(char **ss, const char *s, char lim)
 {
-    char **ns;
+	size_t	len;
+	int		i;
 
-    ns = malloc(count_word(s, c) * sizeof(char *));
-    if (!ns)
-        return NULL;
-    claim_word(ns, s, c);
-    return (ns);
+	i = 0;
+	while (*s)
+	{
+		len = 0;
+		while (*s == lim && *s)
+			s++;
+		while (*s != lim && *s)
+		{
+			len++;
+			s++;
+		}
+		if (len)
+		{
+			if (safe_malloc(ss, i, len + 1))
+				return (1);
+			strlcpy_(ss[i], s - len, len + 1);
+			i++;
+		}
+	}
+	return (0);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**sp;
+	int		l;
+
+	l = count_word(s, c);
+	sp = malloc((l + 1) * sizeof(char *));
+	if (!sp)
+		return (NULL);
+	sp[l] = NULL;
+	if (claim_word(sp, s, c))
+		return (NULL);
+	return (sp);
 }
 
 // int main()
