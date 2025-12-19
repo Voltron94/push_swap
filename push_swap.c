@@ -21,7 +21,7 @@ void	fill_stack_a(int argc, char **argv, t_list **stack_a)
 	i = 0;
 	while (i < argc)
 	{
-		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i])));
+		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i])));	//check 2 depuis atoi
 		i++;
 	}
 }
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
-	while (i < argc)
+	while (i < argc)	//check 1
 	{
 		if (!argv_check(argv[i]))
 			return (write(2, "error", 5));
@@ -79,7 +79,7 @@ int	main(int argc, char **argv)
 	}
 	argument = all_for_one(argc, argv);
 	fill_stack_a(ft_arg_len(argument), argument, &stack_a);
-	tmp(5, &stack_b);
+	tmp(5, &stack_b); //fill b pour des tests
 
 	ft_printf("\n - [Avant]\n\n");
 	ft_printf("\n============		list A :	 ============\n\n");
@@ -91,8 +91,6 @@ int	main(int argc, char **argv)
 	ft_printf("\n - [Instruction]\n\n");
 	
 	ft_pa(&stack_a, &stack_b);
-	ft_pa(&stack_a, &stack_b);
-	//ft_sa(&stack_a);
 
 	ft_printf("\n - [Apres]\n\n");
 	ft_printf("\n============		list A :	============\n\n");

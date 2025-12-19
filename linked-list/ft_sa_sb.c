@@ -15,32 +15,27 @@ void	ft_sa(t_list **lst)
 	last_node = head->previous;
 	if (!lst || !(*lst))
 		return;
-	if (!head->next)
-	{
-       	//ft_printf("error : can't swap a node with nothing\n");
+	if (!head->next)	//si un element
     	return;	
-	}
-	else if (head->next->next == head)
+	else if (head->next->next == head) //si 2 element
 	{
 		*lst = second_node;
+		return;
     }
-	else 
-	{
-		third_node = second_node->next;
-		third_node->previous = head;
+	third_node = second_node->next;
+	third_node->previous = head;
 
-		head->next = third_node;
+	head->next = third_node;
 
-		second_node->next = head;
-		second_node->previous = head->previous;
+	second_node->next = head;
+	second_node->previous = head->previous;
 
-		head->previous = second_node;
+	head->previous = second_node;
 
-		last_node->next = second_node; 
-		*lst = second_node;
-		ft_printf("sa\n");
-	}
-}
+	last_node->next = second_node; 
+	*lst = second_node;
+	ft_printf("sa\n");
+} //24 lignes avec norme
 
 /* Stack B */
 void	ft_sb(t_list **lst)
@@ -61,23 +56,20 @@ void	ft_sb(t_list **lst)
 	{
 		*lst = second_node;
     }
-	else 
-	{
-		third_node = second_node->next;
-		third_node->previous = head;
+	third_node = second_node->next;
+	third_node->previous = head;
 
-		head->next = third_node;
+	head->next = third_node;
 
-		second_node->next = head;
-		second_node->previous = head->previous;
+	second_node->next = head;
+	second_node->previous = head->previous;
 
-		head->previous = second_node;
+	head->previous = second_node;
 
-		last_node->next = second_node; 
-		*lst = second_node;
-		ft_printf("sb\n");
-	}
-}
+	last_node->next = second_node; 
+	*lst = second_node;
+	ft_printf("sb\n");
+} //24 lignes avec norme
 
 void	ft_ss(t_list **stack_a, t_list **stack_b)
 {

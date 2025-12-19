@@ -9,6 +9,7 @@ typedef struct s_list
 }					t_list;
 
 # include "ft_printf/ft_printf.h"
+# include <limits.h>
 # include <stdlib.h> //exit() compris
 # include <unistd.h>
 
