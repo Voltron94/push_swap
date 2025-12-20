@@ -79,7 +79,7 @@ int	main(int argc, char **argv)
 	}
 	argument = all_for_one(argc, argv);
 	fill_stack_a(ft_arg_len(argument), argument, &stack_a);
-	tmp(5, &stack_b); //fill b pour des tests
+	tmp(1, &stack_b); //fill b pour des tests
 
 	ft_printf("\n - [Avant]\n\n");
 	ft_printf("\n============		list A :	 ============\n\n");
@@ -90,8 +90,7 @@ int	main(int argc, char **argv)
 	/* Zone de test*/
 	ft_printf("\n - [Instruction]\n\n");
 	
-	ft_sb(&stack_b);
-	//ft_pa(&stack_a, &stack_b);
+	ft_pa(&stack_a, &stack_b);
 	//ft_pb(&stack_a, &stack_b);
 
 	ft_printf("\n - [Apres]\n\n");

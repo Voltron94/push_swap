@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-/*Echange les deux premier element de la list*/
-
 /* Stack A */
 void	ft_sa(t_list **lst)
 {
@@ -31,7 +29,6 @@ void	ft_sa(t_list **lst)
 	*lst = second_node;
 	ft_printf("sa\n");
 }
-
 
 /* Stack B */
 void	ft_sb(t_list **lst)
@@ -68,3 +65,11 @@ void	ft_ss(t_list **stack_a, t_list **stack_b)
 	ft_sa(stack_a);
 	ft_sb(stack_b);
 }
+
+/*
+	A prendre en compte !
+		Si la stack = 1 element					[x]
+		Si la stack est vide					[x]
+		Le cas classique, beaucoup d'element	[x]
+		Si 2 elements au lieu de plus      		[x]
+*/
