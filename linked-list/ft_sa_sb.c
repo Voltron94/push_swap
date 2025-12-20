@@ -5,71 +5,63 @@
 /* Stack A */
 void	ft_sa(t_list **lst)
 {
-    t_list *head;
-    t_list *second_node;
-    t_list *third_node;
+	t_list *second_node;
+	t_list *third_node;
 	t_list *last_node;
 
-	head = *lst;
-	second_node = head->next;
-	last_node = head->previous;
 	if (!lst || !(*lst))
 		return;
-	if (!head->next)	//si un element
-    	return;	
-	else if (head->next->next == head) //si 2 element
+	if (!(*lst)->next)	// si un élément
+		return;
+	second_node = (*lst)->next;
+	last_node = (*lst)->previous;
+	if (second_node->next == *lst) // si 2 éléments
 	{
 		*lst = second_node;
+		ft_printf("sa\n");
 		return;
-    }
+	}
 	third_node = second_node->next;
-	third_node->previous = head;
-
-	head->next = third_node;
-
-	second_node->next = head;
-	second_node->previous = head->previous;
-
-	head->previous = second_node;
-
+	third_node->previous = *lst;
+	(*lst)->next = third_node;
+	second_node->next = *lst;
+	second_node->previous = (*lst)->previous;
+	(*lst)->previous = second_node;
 	last_node->next = second_node; 
 	*lst = second_node;
 	ft_printf("sa\n");
-} //24 lignes avec norme
+}
+
 
 /* Stack B */
 void	ft_sb(t_list **lst)
 {
-    t_list *head;
-    t_list *second_node;
-    t_list *third_node;
+	t_list *second_node;
+	t_list *third_node;
 	t_list *last_node;
 
-	head = *lst;
-	second_node = head->next;
-	last_node = head->previous;
 	if (!lst || !(*lst))
 		return;
-	if (!head->next)
-    	return;	
-	else if (head->next->next == head)
+	if (!(*lst)->next)
+		return;
+	second_node = (*lst)->next;
+	last_node = (*lst)->previous;
+	if (second_node->next == *lst)
 	{
 		*lst = second_node;
-    }
+		ft_printf("sb\n");
+		return;
+	}
 	third_node = second_node->next;
-	third_node->previous = head;
-
-	head->next = third_node;
-
-	second_node->next = head;
-	second_node->previous = head->previous;
-
-	head->previous = second_node;
-
+	third_node->previous = *lst;
+	(*lst)->next = third_node;
+	second_node->next = *lst;
+	second_node->previous = (*lst)->previous;
+	(*lst)->previous = second_node;
 	last_node->next = second_node; 
 	*lst = second_node;
 	ft_printf("sb\n");
-} //24 lignes avec norme
+}
 
 void	ft_ss(t_list **stack_a, t_list **stack_b)
 {

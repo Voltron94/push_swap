@@ -19,14 +19,19 @@ t_list				*ft_lstnew(int content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_print_linked(t_list *lst);
 void				ft_lst_rotate(t_list **lst);
-void				ft_pa(t_list **stack_a, t_list **stack_b);
-void				ft_pb(t_list **stack_a, t_list **stack_b);
 
 /* --- Linked instruction --- */
 
-void				ft_sa(t_list **lst);
-void				ft_sb(t_list **lst);
-void				ft_ss(t_list **stack_a, t_list **stack_b);
+void				ft_sa(t_list **lst);						//	switch the two first element at the top fo the stack A
+void				ft_sb(t_list **lst);						//	same like sa but for the stack b
+void				ft_ss(t_list **stack_a, t_list **stack_b);	//	sa + sb
+void				ft_pa(t_list **stack_a, t_list **stack_b);	//	the first element of B become the first element of A
+void				ft_pb(t_list **stack_a, t_list **stack_b);	//	the first element of A become the first element of B
+
+/* --- Linked utils --- */
+
+t_list 				*ft_erase_h(t_list **stack);
+void 				ft_push_h(t_list **stack, t_list *node);
 
 /* --- Utils --- */
 

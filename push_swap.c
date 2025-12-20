@@ -90,7 +90,9 @@ int	main(int argc, char **argv)
 	/* Zone de test*/
 	ft_printf("\n - [Instruction]\n\n");
 	
-	ft_pa(&stack_a, &stack_b);
+	ft_sb(&stack_b);
+	//ft_pa(&stack_a, &stack_b);
+	//ft_pb(&stack_a, &stack_b);
 
 	ft_printf("\n - [Apres]\n\n");
 	ft_printf("\n============		list A :	============\n\n");
