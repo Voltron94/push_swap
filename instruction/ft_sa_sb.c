@@ -16,7 +16,6 @@ void	ft_sa(t_list **lst)
 	if (second_node->next == *lst) // si 2 éléments
 	{
 		*lst = second_node;
-		ft_printf("sa\n");
 		return;
 	}
 	third_node = second_node->next;
@@ -27,7 +26,6 @@ void	ft_sa(t_list **lst)
 	(*lst)->previous = second_node;
 	last_node->next = second_node; 
 	*lst = second_node;
-	ft_printf("sa\n");
 }
 
 /* Stack B */
@@ -46,7 +44,6 @@ void	ft_sb(t_list **lst)
 	if (second_node->next == *lst)
 	{
 		*lst = second_node;
-		ft_printf("sb\n");
 		return;
 	}
 	third_node = second_node->next;
@@ -57,7 +54,6 @@ void	ft_sb(t_list **lst)
 	(*lst)->previous = second_node;
 	last_node->next = second_node; 
 	*lst = second_node;
-	ft_printf("sb\n");
 }
 
 void	ft_ss(t_list **stack_a, t_list **stack_b)
