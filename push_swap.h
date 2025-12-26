@@ -4,6 +4,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 	struct s_list	*previous;
 }					t_list;
@@ -19,6 +20,7 @@ t_list				*ft_lstnew(int content);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_print_linked(t_list *lst);
 void				ft_lst_rotate(t_list **lst);
+int					ft_lstsize(t_list *lst);
 
 /* --- Linked instruction --- */
 
@@ -56,5 +58,12 @@ int					ft_strlen(char *str);
 char				*ft_strdup(char *s);
 char				**ft_split(const char *s, char c);
 int					ft_arg_len(char **s);
+
+/* --- Algo --- */
+
+void 				indexation(t_list *stack_a);
+void				print_index(t_list *lst); //	A supprimer !
+
+/* --- Algo Utils --- */
 
 #endif

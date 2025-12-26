@@ -9,8 +9,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
     head = *lst;
     if (cursor)
     {
-        while (cursor->next != *lst && cursor->next) // != *lst
+        while (cursor->next != *lst && cursor->next) // != *lst //jamais si stack = 1
+        {
             cursor = cursor->next;
+        }
         new->previous = cursor; //le previous de new est le noeux actuelle;
         cursor->next = new;
         new->next = head; // on boucle ici

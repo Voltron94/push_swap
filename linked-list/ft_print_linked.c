@@ -15,5 +15,4 @@ void	ft_print_linked(t_list *lst)
         ft_printf("linked content : %i \n", cursor->content);
         cursor = cursor->next;
     }
-    
 }

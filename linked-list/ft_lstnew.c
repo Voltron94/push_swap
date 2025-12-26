@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: voltron <voltron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:47:48 by eprieur           #+#    #+#             */
-/*   Updated: 2025/12/14 00:27:21 by voltron          ###   ########.fr       */
+/*   Updated: 2025/12/27 00:05:33 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int content)
 	if (lst == 0)
 		return (0);
 	lst->content = content;
+	lst->index = 0;
 	lst->next = NULL;
 	lst->previous = NULL;
 	return (lst);
