@@ -16,26 +16,14 @@ int	argv_check(char *s)
 	return (1);
 }
 
-void	fill_stack_a(int argc, char **argv, t_list **stack_a)
+void	fill_stack_a(int size, char **argv, t_list **stack_a)
 {
 	int	i;
 
 	i = 0;
-	while (i < argc)
+	while (i < size)
 	{
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i])));	//check 2 depuis atoi
-		i++;
-	}
-}
-
-void	tmp(int n, t_list **stack_b)
-{
-	int	i;
-
-	i = 0;
-	while (i < n)
-	{
-		ft_lstadd_back(stack_b, ft_lstnew(i));
 		i++;
 	}
 }
@@ -54,10 +42,6 @@ char	**all_for_one(int argc, char **argv)
 		i++;
 	}
 	ns_split = ft_split(ns, ' ');
-	// for (int i = 0;  ns_split[i]; i++)
-	// {
-	//     ft_printf("ns_split : %s \n", ns_split[i]);
-	// }
 	return (ns_split);
 }
 
@@ -76,7 +60,7 @@ int	main(int argc, char **argv)
 	while (i < argc)	//check 1
 	{
 		if (!argv_check(argv[i]))
-			return (write(2, "error", 5));
+			return (write(2, "Error\n", 6));
 		i++;
 	}
 	argument = all_for_one(argc, argv);
@@ -85,16 +69,18 @@ int	main(int argc, char **argv)
 
 	fill_stack_a(ft_arg_len(argument), argument, &stack_a);
 
-	//tmp(5, &stack_b); //fill b pour des tests
-	// ft_printf("\n - [Avant]\n\n");
-	// ft_printf("\n============		stack A :	 ============\n\n");
-	// ft_print_linked(stack_a);
-	// ft_printf("\n============		stack B :	 ============\n\n");
-	// ft_print_linked(stack_b);
+	ft_printf("\n - [Avant]\n\n");
+	ft_printf("\n============		stack A :	 ============\n\n");
+	ft_print_linked(stack_a);
+	ft_printf("\n============		stack B :	 ============\n\n");
+	ft_print_linked(stack_b);
 
-	/* Zone de test*/
+	if(ft_arg_len(argument) == 1)
+		return (0);
 
-	// ft_printf("\n - [Instruction]\n\n");
+	/* Zone de test */
+
+	ft_printf("\n - [Instruction]\n\n");
 	
 	// push(&stack_a, &stack_b, 'a');
 	// swap(&stack_a, &stack_b, 'a');
@@ -112,9 +98,9 @@ int	main(int argc, char **argv)
 	// ft_printf("\n - [Radix] En cours... \n\n");
 	radix(&stack_a, &stack_b);
 
-	// ft_printf("\n - [Apres]\n\n");
-	// ft_printf("\n============		stack A :	============\n\n");
-	// ft_print_linked(stack_a);
-	// ft_printf("\n============		stack B :	============\n\n");
-	// ft_print_linked(stack_b);
+	ft_printf("\n - [Apres]\n\n");
+	ft_printf("\n============		stack A :	============\n\n");
+	ft_print_linked(stack_a);
+	ft_printf("\n============		stack B :	============\n\n");
+	ft_print_linked(stack_b);
 }

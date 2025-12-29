@@ -1,37 +1,21 @@
 #include "push_swap.h"
 
-/*			Temporaire			*/
-
-
-void	print_tab(int *tab, int size) // A supprimer
+void double_check(int *tab, int size)
 {
-    ft_printf("\n");
-	for (int i = 0; i < size; i++)
+	int i;
+
+	i = 0;
+	while (i < size)
 	{
-		ft_printf("tab %i : %i \n", i, tab[i]);
+		if (tab[i] == tab[i - 1])
+			{
+					write(2, "Error\n", 6);
+					//ft_memory_heaven();        liberer toute la memoire actuelle
+					exit(EXIT_FAILURE);
+			}
+		i++;
 	}
 }
-
-void	print_index(t_list *lst)
-{
-    t_list *cursor;
-
-    cursor = lst;
-    if (!lst)
-        return;
-    ft_printf("linked index : %i \n", cursor->index);
-    if (cursor->next)
-        cursor = cursor->next;
-    while (cursor != lst)
-    {
-        ft_printf("linked index : %i \n", cursor->index);
-        cursor = cursor->next;
-    }
-}
-
-
-/*								*/
-
 
 static void	swap_tab(int *a, int *b)
 {
@@ -42,7 +26,7 @@ static void	swap_tab(int *a, int *b)
 	*b = tmp;
 }
 
-static void	sort_int_tab(int *tab, unsigned int size)
+void	sort_int_tab(int *tab, unsigned int size)
 {
 	unsigned int	i;
 
@@ -71,7 +55,6 @@ int	*copy_cat(t_list *lst, int size)
 	size = ft_lstsize(lst);
 	tab = malloc(size * sizeof(int));
     cursor = lst;
-	// ft_printf("\nstack a size : %i\n\n", size);
 
 	/* Copy */
 
@@ -84,7 +67,6 @@ int	*copy_cat(t_list *lst, int size)
 	/* Trie affichage */
 
     sort_int_tab(tab, size);
-	// print_tab(tab, size);
     return tab;
 }
 
@@ -99,7 +81,7 @@ void indexation(t_list *lst)
 	tab = copy_cat(lst, size);
 	head = lst;
     i = 0;
-
+	double_check(tab, size); //check doublons
     /* Indexation (remplace le contenue par l'index de sa place ! )*/
 	while (1)
 	{
@@ -117,6 +99,7 @@ void indexation(t_list *lst)
 		if (head == lst)
 			break;
 	}
+	free(tab);
 }
 /*
 
@@ -125,5 +108,3 @@ void indexation(t_list *lst)
 			# Si trouver : reperer sont index dans tab grace a i
 
 */
-// ft_printf("\n");
-// ft_print_linked(lst);

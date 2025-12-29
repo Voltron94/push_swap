@@ -31,7 +31,7 @@ int	ft_atoi(const char *nptr)
 	}
 	if (nb > INT_MAX)
 	{
-		write(2, "error", 5);
+		write(2, "Error\n", 6);
 		//ft_memory_heaven();		liberer toute la memoire actuelle
 		exit(EXIT_FAILURE);
 	}
