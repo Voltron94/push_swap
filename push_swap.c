@@ -69,18 +69,18 @@ int	main(int argc, char **argv)
 
 	fill_stack_a(ft_arg_len(argument), argument, &stack_a);
 
-	ft_printf("\n - [Avant]\n\n");
-	ft_printf("\n============		stack A :	 ============\n\n");
-	ft_print_linked(stack_a);
-	ft_printf("\n============		stack B :	 ============\n\n");
-	ft_print_linked(stack_b);
+	// ft_printf("\n - [Avant]\n\n");
+	// ft_printf("\n============		stack A :	 ============\n\n");
+	// ft_print_linked(stack_a);
+	// ft_printf("\n============		stack B :	 ============\n\n");
+	// ft_print_linked(stack_b);
 
 	if(ft_arg_len(argument) == 1)
 		return (0);
 
 	/* Zone de test */
 
-	ft_printf("\n - [Instruction]\n\n");
+	// ft_printf("\n - [Instruction]\n\n");
 	
 	// push(&stack_a, &stack_b, 'a');
 	// swap(&stack_a, &stack_b, 'a');
@@ -98,9 +98,9 @@ int	main(int argc, char **argv)
 	// ft_printf("\n - [Radix] En cours... \n\n");
 	radix(&stack_a, &stack_b);
 
-	ft_printf("\n - [Apres]\n\n");
-	ft_printf("\n============		stack A :	============\n\n");
-	ft_print_linked(stack_a);
-	ft_printf("\n============		stack B :	============\n\n");
-	ft_print_linked(stack_b);
+	// ft_printf("\n - [Apres]\n\n");
+	// ft_printf("\n============		stack A :	============\n\n");
+	// ft_print_linked(stack_a);
+	// ft_printf("\n============		stack B :	============\n\n");
+	// ft_print_linked(stack_b);
 }
