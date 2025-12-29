@@ -71,7 +71,7 @@ int	*copy_cat(t_list *lst, int size)
 	size = ft_lstsize(lst);
 	tab = malloc(size * sizeof(int));
     cursor = lst;
-	ft_printf("\nstack a size : %i\n\n", size);
+	// ft_printf("\nstack a size : %i\n\n", size);
 
 	/* Copy */
 
@@ -84,7 +84,7 @@ int	*copy_cat(t_list *lst, int size)
 	/* Trie affichage */
 
     sort_int_tab(tab, size);
-	print_tab(tab, size);
+	// print_tab(tab, size);
     return tab;
 }
 
