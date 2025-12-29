@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 /*		Affichage		*/
 
 	fill_stack_a(ft_arg_len(argument), argument, &stack_a);
-	tmp(5, &stack_b); //fill b pour des tests
+	//tmp(5, &stack_b); //fill b pour des tests
 
 	ft_printf("\n - [Avant]\n\n");
 	ft_printf("\n============		stack A :	 ============\n\n");
@@ -97,19 +97,24 @@ int	main(int argc, char **argv)
 	ft_printf("\n - [Instruction]\n\n");
 	
 	// push(&stack_a, &stack_b, 'a');
-	swap(&stack_a, &stack_b, 'a');
+	// swap(&stack_a, &stack_b, 'a');
 	// rotate(&stack_a, &stack_b, 'a');
 	// reverse_rotate(&stack_a, &stack_b, 'a');
+
+	// push(&stack_a, &stack_b, 'b');
+    // rotate(&stack_a, &stack_b, 'a');
+
 	indexation(stack_a);
+
+	ft_printf("\n - [Index] stack A \n\n");
+	print_index(stack_a);		//A supprimer
+
+	ft_printf("\n - [Radix] En cours... \n\n");
+	radix(&stack_a, &stack_b);
 
 	ft_printf("\n - [Apres]\n\n");
 	ft_printf("\n============		stack A :	============\n\n");
 	ft_print_linked(stack_a);
 	ft_printf("\n============		stack B :	============\n\n");
 	ft_print_linked(stack_b);
-	
-	ft_printf("\n - [Index] stack A \n\n");
-
-	print_index(stack_a);		//A supprimer
-
 }

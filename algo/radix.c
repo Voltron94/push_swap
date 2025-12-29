@@ -1,0 +1,80 @@
+#include "push_swap.h"
+
+int get_max_bits(t_list *stack)
+{
+    int bit_size = 0;
+    int max_val = ft_lstsize(stack) - 1;
+    while (max_val > 1)
+    {
+        bit_size++;
+        max_val /= 2;
+    }
+    return (bit_size);
+}
+
+// void radix_part2(t_list **stack_a, t_list **stack_b, int i)
+// {
+//     int tmp;
+//     int size;
+//     int max_bit;
+
+//     size = ft_lstsize(*stack_b);
+//     max_bit = get_max_bits(stack_b);
+//     while (i <= max_bit)
+//     {
+//         tmp = size;
+//         while (tmp-- > 0)
+//         {
+//             if ((((*stack_a)->index >> i) & 1) == 0)
+//                 push(stack_a, stack_b, 'b');
+//             else
+//                 rotate(stack_a, stack_b, 'a');
+//         }
+//         i++;
+//     }
+// }
+
+void radix_part2(t_list **stack_a, t_list **stack_b)
+{
+    int j;
+    int size;
+
+    j = 0;
+    size = ft_lstsize(*stack_b);
+    while (j < size)
+    {
+        push(stack_a, stack_b, 'a');
+        j++;
+    }
+}
+
+void radix(t_list **stack_a, t_list **stack_b)
+{
+    int i;
+    int tmp;
+    int size;
+    int max_bit;
+
+    i = 0;
+    size = ft_lstsize(*stack_a);
+    max_bit = get_max_bits(*stack_a); // nb bits du plus grand nombre
+    while (i <= max_bit)
+    {
+        tmp = size; // nombre d'element a traiter, tmp doit avoir un nombre constant ! Chaque fois que on relance, stack_a doit conserver le meme nb d'element
+        while (tmp-- > 0)
+        {
+            if ((((*stack_a)->index >> i) & 1) == 0)
+                push(stack_a, stack_b, 'b');
+            else
+                rotate(stack_a, stack_b, 'a');
+        }
+        radix_part2(stack_a, stack_b);
+        i++;
+    }
+}
+
+/*
+    # si le chiffre a pour bit de poids faible 0 on push dans la stack B
+        # sinon on rotate et on passe a la suite
+    # on renvoie dans la stack A se qui se trouve dans la stack B
+*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: voltron <voltron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:58:06 by eprieur           #+#    #+#             */
-/*   Updated: 2025/12/21 16:04:23 by eprieur          ###   ########.fr       */
+/*   Updated: 2025/12/28 23:21:56 by voltron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 void	ft_push_h(t_list **stack, t_list *node)	// Utilite : pa/pb
 {
 	t_list	*head;
-	t_list	*second;
 	t_list	*tail;
 
 	head = *stack;
@@ -26,7 +25,6 @@ void	ft_push_h(t_list **stack, t_list *node)	// Utilite : pa/pb
 		*stack = node;
 		return ;
 	}
-	second = head->next;
 	tail = head->previous;
 	if (head->next == NULL)
 	{
@@ -69,7 +67,7 @@ t_list	*ft_unlink_h(t_list **stack)	// Utilite : pa/pb
 	head = *stack;
 	second = head->next;
 	tail = head->previous;
-	if (head->next == NULL)
+	if (head->next == head || head->next == NULL)
 	{
 		*stack = NULL;
 		head->next = NULL;

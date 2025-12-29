@@ -63,6 +63,7 @@ int					ft_arg_len(char **s);
 
 void 				indexation(t_list *stack_a);
 void				print_index(t_list *lst); //	A supprimer !
+void 				radix(t_list **stack_a, t_list **stack_b);
 
 /* --- Algo Utils --- */
 
