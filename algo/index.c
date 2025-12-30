@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void double_check(int *tab, int size)
+void double_check(int *tab, int size, t_list **stack_a, t_list **stack_b)
 {
 	int i;
 
@@ -10,7 +10,7 @@ void double_check(int *tab, int size)
 		if (tab[i] == tab[i + 1])
 			{
 					write(2, "Error\n", 6);
-					//ft_memory_heaven();        liberer toute la memoire actuelle
+					ft_memory_heaven(stack_a, stack_b);
 					exit(EXIT_FAILURE);
 			}
 		i++;
@@ -71,33 +71,32 @@ int	*copy_cat(t_list *lst, int size)
     return tab;
 }
 
-void indexation(t_list *lst)
+void indexation(t_list **stack_a, t_list **stack_b)
 {
 	t_list *head;
 	int *tab;
 	int size;
 	int i;
 
-	size = ft_lstsize(lst);
-	tab = copy_cat(lst, size);
-	head = lst;
+	size = ft_lstsize(*stack_a);
+	tab = copy_cat(*stack_a, size);
+	head = *stack_a;
     i = 0;
-	double_check(tab, size); //check doublons
-    /* Indexation (remplace le contenue par l'index de sa place ! )*/
+	double_check(tab, size, stack_a, stack_b);
 	while (1)
 	{
 		i = 0;
 		while (i < size)
 		{
-			if (tab[i] == lst->content)
+			if (tab[i] == (*stack_a)->content)
 			{
-				lst->index = i;
+				(*stack_a)->index = i;
 				break;
 			}
 			i++;
 		}
-		lst = lst->next;
-		if (head == lst)
+		(*stack_a) = (*stack_a)->next;
+		if (head == (*stack_a))
 			break;
 	}
 	free(tab);

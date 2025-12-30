@@ -29,7 +29,7 @@ void radix(t_list **stack_a, t_list **stack_b)
         two_case(stack_a, stack_b);
     if (size == 3)
         three_case(stack_a, stack_b);
-    while (i <= max_bit && size != 2 && size != 3)
+    while (i <= max_bit && size != 2)
     {
         tmp = size; // nombre d'element a traiter . Chaque fois que on relance, stack_a doit conserver le meme nb d'element !
         while (tmp-- > 0)

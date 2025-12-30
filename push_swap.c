@@ -86,7 +86,7 @@ int	main(int argc, char **argv)
 		free_tab(argument, ft_arg_len(argument));
 		return (0);
 	}
-	indexation(stack_a);
+	indexation(&stack_a, &stack_b);
 	radix(&stack_a, &stack_b);
 
 
@@ -98,7 +98,7 @@ int	main(int argc, char **argv)
 
 
 	ft_memory_heaven(&stack_a, &stack_b);
-	free_tab(argument, ft_arg_len(argument));
+	free_tab(argument, ft_arg_len(argument)); //A deplacer juste en dessous de fill_stack_a !
 }
 
 //leak si doublon detecter !
