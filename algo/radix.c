@@ -2,8 +2,11 @@
 
 int get_max_bits(t_list *stack)
 {
-    int bit_size = 0;
-    int max_val = ft_lstsize(stack) - 1;
+    int bit_size;
+    int max_val;
+
+    bit_size = 0;
+    max_val = ft_lstsize(stack) - 1;
     while (max_val > 1)
     {
         bit_size++;

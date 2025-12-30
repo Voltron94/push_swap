@@ -6,7 +6,7 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:47:48 by eprieur           #+#    #+#             */
-/*   Updated: 2025/12/27 00:05:33 by eprieur          ###   ########.fr       */
+/*   Updated: 2025/12/30 15:55:33 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_list	*ft_lstnew(int content)
 	t_list	*lst;
 
 	lst = malloc(sizeof(t_list));
-	if (lst == 0)
-		return (0);
+	if (lst == NULL)
+		return (NULL);
 	lst->content = content;
 	lst->index = 0;
 	lst->next = NULL;

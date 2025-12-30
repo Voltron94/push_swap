@@ -7,7 +7,7 @@ static int	is_space(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr, t_list **stack_a, t_list **stack_b)
 {
 	int		i;
 	int		c;
@@ -32,7 +32,7 @@ int	ft_atoi(const char *nptr)
 	if (nb > INT_MAX)
 	{
 		write(2, "Error\n", 6);
-		//ft_memory_heaven();		liberer toute la memoire actuelle
+		ft_memory_heaven(stack_a, stack_b);		// liberer toute la memoire actuelle
 		exit(EXIT_FAILURE);
 	}
 	return (nb * c);

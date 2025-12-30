@@ -5,9 +5,9 @@ void double_check(int *tab, int size)
 	int i;
 
 	i = 0;
-	while (i < size)
+	while (i < size - 1)
 	{
-		if (tab[i] == tab[i - 1])
+		if (tab[i] == tab[i + 1])
 			{
 					write(2, "Error\n", 6);
 					//ft_memory_heaven();        liberer toute la memoire actuelle
@@ -53,9 +53,10 @@ int	*copy_cat(t_list *lst, int size)
 
 	i = 0;
 	size = ft_lstsize(lst);
-	tab = malloc(size * sizeof(int));
+	tab = malloc(size * sizeof(int *));
+	if (!tab)
+		return (NULL);
     cursor = lst;
-
 	/* Copy */
 
     while (i < size)

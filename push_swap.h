@@ -21,6 +21,7 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_print_linked(t_list *lst);
 void				ft_lst_rotate(t_list **lst);
 int					ft_lstsize(t_list *lst);
+void				ft_lstclear(t_list **lst);
 
 /* --- Linked instruction --- */
 
@@ -52,7 +53,7 @@ void				ft_push_tail(t_list **stack, t_list *node);
 
 /* --- Utils --- */
 
-int					ft_atoi(const char *nptr);
+int					ft_atoi(const char *nptr, t_list **stack_a, t_list **stack_b);
 char				*ft_strjoin(char *s1, char *s2);
 int					ft_strlen(char *str);
 char				*ft_strdup(char *s);
@@ -65,6 +66,9 @@ void 				indexation(t_list *stack_a);
 void				print_index(t_list *lst); //	A supprimer !
 void 				radix(t_list **stack_a, t_list **stack_b);
 
-/* --- Algo Utils --- */
+/* --- Free --- */
+
+void 				ft_memory_heaven(t_list **stack_a, t_list **stack_b);
+void 				free_tab(char **tab, int size);
 
 #endif
