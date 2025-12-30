@@ -7,9 +7,7 @@ void	ft_sa(t_list **lst)
 	t_list *third_node;
 	t_list *last_node;
 
-	if (!lst || !(*lst))
-		return;
-	if (!(*lst)->next)	// si un élément
+	if (!lst || !(*lst) || !(*lst)->next)
 		return;
 	second_node = (*lst)->next;
 	last_node = (*lst)->previous;
@@ -35,9 +33,7 @@ void	ft_sb(t_list **lst)
 	t_list *third_node;
 	t_list *last_node;
 
-	if (!lst || !(*lst))
-		return;
-	if (!(*lst)->next)
+	if (!lst || !(*lst) || !(*lst)->next)
 		return;
 	second_node = (*lst)->next;
 	last_node = (*lst)->previous;

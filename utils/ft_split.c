@@ -104,8 +104,8 @@ char	**ft_split(char const *s, char c)
 //     char *s = "SalutOOOOCommentOvOaOtuOOOO?";
 //     char **ns = ft_split(s, 'O');
 
-    // for (int i = 0;  ns[i]; i++)
-    // {
-    //     printf("ns : %s \n", ns[i]);
-    // }
+// for (int i = 0;  ns[i]; i++)
+// {
+//     printf("ns : %s \n", ns[i]);
+// }
 // }

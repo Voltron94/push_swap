@@ -25,7 +25,11 @@ void radix(t_list **stack_a, t_list **stack_b)
     i = 0;
     size = ft_lstsize(*stack_a);
     max_bit = get_max_bits(*stack_a); // nb bits du plus grand nombre
-    while (i <= max_bit)
+    if (size == 2)
+        two_case(stack_a, stack_b);
+    if (size == 3)
+        three_case(stack_a, stack_b);
+    while (i <= max_bit && size != 2 && size != 3)
     {
         tmp = size; // nombre d'element a traiter . Chaque fois que on relance, stack_a doit conserver le meme nb d'element !
         while (tmp-- > 0)
