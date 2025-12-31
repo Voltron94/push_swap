@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6));
 	argument = all_for_one(argc, argv);
 	fill_stack_a(ft_arg_len(argument), argument, &stack_a, &stack_b);
-
+	free_tab(argument, ft_arg_len(argument));
 
 	ft_printf("\n - [Avant]\n\n");
     ft_printf("\n============        stack A :     ============\n\n");
@@ -83,7 +83,6 @@ int	main(int argc, char **argv)
 	if (ft_arg_len(argument) == 1)
 	{
 		ft_memory_heaven(&stack_a, &stack_b);
-		free_tab(argument, ft_arg_len(argument));
 		return (0);
 	}
 	indexation(&stack_a, &stack_b);
@@ -98,7 +97,6 @@ int	main(int argc, char **argv)
 
 
 	ft_memory_heaven(&stack_a, &stack_b);
-	free_tab(argument, ft_arg_len(argument)); //A deplacer juste en dessous de fill_stack_a !
 }
 
 //leak si doublon detecter !

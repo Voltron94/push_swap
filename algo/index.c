@@ -10,6 +10,7 @@ void double_check(int *tab, int size, t_list **stack_a, t_list **stack_b)
 		if (tab[i] == tab[i + 1])
 			{
 					write(2, "Error\n", 6);
+					free(tab);
 					ft_memory_heaven(stack_a, stack_b);
 					exit(EXIT_FAILURE);
 			}
