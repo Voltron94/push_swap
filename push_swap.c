@@ -1,39 +1,5 @@
 #include "libft.h"
 
-int	argv_check(char **s, int size)
-{
-	int	i;
-	int	j;
-
-	j = 1;
-	while (j < size)
-	{
-		i = 0;
-		if (s[j][i] == '-' && (s[j][i + 1] >= '0' && s[j][i + 1] <= '9'))
-			i++;
-		while (s[j][i])
-		{
-			if ((s[j][i] < '0' || s[j][i] > '9') && s[j][i] != ' ')
-				return (0);
-			i++;
-		}
-		j++;
-	}
-	return (1);
-}
-
-void	fill_stack_a(int size, char **argv, t_list **stack_a, t_list **stack_b)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i], stack_a, stack_b)));
-		i++;
-	}
-}
-
 char	**all_for_one(int argc, char **argv)
 {
 	int		i;
@@ -65,8 +31,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
-	if (!argv_check(argv, argc))
-		return (write(2, "Error\n", 6));
+	argv_check(argv, argc);
 	argument = all_for_one(argc, argv);
 	fill_stack_a(ft_arg_len(argument), argument, &stack_a, &stack_b);
 	if (ft_arg_len(argument) == 1)
@@ -78,7 +43,6 @@ int	main(int argc, char **argv)
 	free_tab(argument, ft_arg_len(argument));
 	indexation(&stack_a, &stack_b);
 	radix(&stack_a, &stack_b);
+
 	ft_memory_heaven(&stack_a, &stack_b);
 }
-
-//leak si doublon detecter !

@@ -19,5 +19,3 @@ void	ft_memory_heaven(t_list **stack_a, t_list **stack_b)
 	if (*stack_b)
 		ft_lstclear(stack_b);
 }
-
-// gerer cas 2 element

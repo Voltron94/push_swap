@@ -8,7 +8,9 @@ CFILES = ft_arg_len.c \
          ft_split.c \
          ft_strdup.c \
          ft_strjoin.c \
-         ft_strlen.c
+         ft_strlen.c \
+         ft_copy_cat.c \
+         ft_sort_int_tab.c
 OFILES = $(CFILES:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a

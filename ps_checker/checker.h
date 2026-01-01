@@ -5,6 +5,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../ft_printf/ft_printf.h"
+# include "../libft/libft.h"
+# include "../push_swap.h"
 # include <limits.h>
 
 
@@ -19,5 +21,7 @@ int		n_check(char *stash);
 char	*ft_strchr(char *s, int c);
 char	*ft_substr(char *s, int start, int len);
 char	*ft_strdup(char *s);
+
+void	action(char *s, int size, t_list **stack_a, t_list **stack_b);
 
 #endif

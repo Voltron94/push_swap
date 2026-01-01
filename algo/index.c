@@ -18,72 +18,13 @@ void double_check(int *tab, int size, t_list **stack_a, t_list **stack_b)
 	}
 }
 
-static void	swap_tab(int *a, int *b)
-{
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-void	sort_int_tab(int *tab, unsigned int size)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (size < 2)
-		return ;
-	while (i < size - 1)
-	{
-		if (tab[i] > tab[i + 1])
-		{
-			swap_tab(&tab[i], &tab[i + 1]);
-			i = 0;
-		}
-		else
-			i++;
-	}
-}
-
-int	*copy_cat(t_list *lst, int size)
-{
-    t_list *cursor;
-	int *tab;
-	int i;
-
-	i = 0;
-	size = ft_lstsize(lst);
-	tab = malloc(size * sizeof(int *));
-	if (!tab)
-		return (NULL);
-    cursor = lst;
-	/* Copy */
-
-    while (i < size)
-    {
-        tab[i] = cursor->content;
-        cursor = cursor->next;
-        i++;
-    }
-	/* Trie affichage */
-
-    sort_int_tab(tab, size);
-    return tab;
-}
-
-void indexation(t_list **stack_a, t_list **stack_b)
+void indexation_next(int *tab, int size, t_list **stack_a)
 {
 	t_list *head;
-	int *tab;
-	int size;
 	int i;
 
-	size = ft_lstsize(*stack_a);
-	tab = copy_cat(*stack_a, size);
+	i = 0;
 	head = *stack_a;
-    i = 0;
-	double_check(tab, size, stack_a, stack_b);
 	while (1)
 	{
 		i = 0;
@@ -100,6 +41,20 @@ void indexation(t_list **stack_a, t_list **stack_b)
 		if (head == (*stack_a))
 			break;
 	}
+}
+
+void indexation(t_list **stack_a, t_list **stack_b)
+{
+	int *tab;
+	int size;
+
+	size = ft_lstsize(*stack_a);
+	tab = copy_cat(*stack_a, size);
+	sort_int_tab(tab, size);
+
+	double_check(tab, size, stack_a, stack_b);
+	indexation_next(tab, size, stack_a);
+
 	free(tab);
 }
 /*

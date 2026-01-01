@@ -14,6 +14,9 @@ char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr, t_list **stack_a, t_list **stack_b);
 int		ft_arg_len(char **av);
 
+int	    *copy_cat(t_list *lst, int size);
+void	sort_int_tab(int *tab, unsigned int size);
+
 /* linked base */
 
 t_list	*ft_lstnew(int content);

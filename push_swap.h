@@ -55,4 +55,9 @@ void 				three_case(t_list **stack_a, t_list **stack_b);
 void 				ft_memory_heaven(t_list **stack_a, t_list **stack_b);
 void 				free_tab(char **tab, int size);
 
+/* --- Global utils --- */
+
+void				fill_stack_a(int size, char **argv, t_list **stack_a, t_list **stack_b);
+void				argv_check(char **s, int size);
+
 #endif
