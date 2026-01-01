@@ -2,7 +2,6 @@
 # define CHECKER_H
 
 # include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "../ft_printf/ft_printf.h"

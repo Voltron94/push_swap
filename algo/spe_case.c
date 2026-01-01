@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "libft.h"
 
 int	is_sort(t_list *stack, int size)
 {

@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	safe_malloc(char **ss, int pos, int len)
 {

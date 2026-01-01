@@ -14,15 +14,6 @@ typedef struct s_list
 # include <stdlib.h> //exit() compris
 # include <unistd.h>
 
-/* --- Linked Base--- */
-
-t_list				*ft_lstnew(int content);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-void				ft_print_linked(t_list *lst);
-void				ft_lst_rotate(t_list **lst);
-int					ft_lstsize(t_list *lst);
-void				ft_lstclear(t_list **lst);
-
 /* --- Linked instruction --- */
 
 void				ft_sa(t_list **lst);						//	switch the two first element at the top fo the stack A
@@ -50,15 +41,6 @@ t_list 				*ft_unlink_h(t_list **stack);
 t_list				*ft_unlink_tail(t_list **stack);
 void 				ft_push_h(t_list **stack, t_list *node);
 void				ft_push_tail(t_list **stack, t_list *node);
-
-/* --- Utils --- */
-
-int					ft_atoi(const char *nptr, t_list **stack_a, t_list **stack_b);
-char				*ft_strjoin(char *s1, char *s2);
-int					ft_strlen(char *str);
-char				*ft_strdup(char *s);
-char				**ft_split(const char *s, char c);
-int					ft_arg_len(char **s);
 
 /* --- Algo --- */
 

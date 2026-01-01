@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "libft.h"
 
 int	argv_check(char **s, int size)
 {
@@ -30,7 +30,6 @@ void	fill_stack_a(int size, char **argv, t_list **stack_a, t_list **stack_b)
 	while (i < size)
 	{
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[i], stack_a, stack_b)));
-		// check 2 depuis atoi
 		i++;
 	}
 }
@@ -70,32 +69,15 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6));
 	argument = all_for_one(argc, argv);
 	fill_stack_a(ft_arg_len(argument), argument, &stack_a, &stack_b);
-	free_tab(argument, ft_arg_len(argument));
-
-	ft_printf("\n - [Avant]\n\n");
-    ft_printf("\n============        stack A :     ============\n\n");
-    ft_print_linked(stack_a);
-    ft_printf("\n============        stack B :     ============\n\n");
-    ft_print_linked(stack_b);
-
-
-
 	if (ft_arg_len(argument) == 1)
 	{
 		ft_memory_heaven(&stack_a, &stack_b);
+		free_tab(argument, ft_arg_len(argument));
 		return (0);
 	}
+	free_tab(argument, ft_arg_len(argument));
 	indexation(&stack_a, &stack_b);
 	radix(&stack_a, &stack_b);
-
-
-	ft_printf("\n - [Apres]\n\n");
-    ft_printf("\n============        stack A :    ============\n\n");
-    ft_print_linked(stack_a);
-    ft_printf("\n============        stack B :    ============\n\n");
-    ft_print_linked(stack_b);
-
-
 	ft_memory_heaven(&stack_a, &stack_b);
 }
 

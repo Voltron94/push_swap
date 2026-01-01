@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "libft.h"
 
 /* Stack A */
 void	ft_sa(t_list **lst)

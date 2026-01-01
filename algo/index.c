@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "libft.h"
 
 void double_check(int *tab, int size, t_list **stack_a, t_list **stack_b)
 {
@@ -8,12 +8,12 @@ void double_check(int *tab, int size, t_list **stack_a, t_list **stack_b)
 	while (i < size - 1)
 	{
 		if (tab[i] == tab[i + 1])
-			{
-					write(2, "Error\n", 6);
-					free(tab);
-					ft_memory_heaven(stack_a, stack_b);
-					exit(EXIT_FAILURE);
-			}
+		{
+				write(2, "Error\n", 6);
+				free(tab);
+				ft_memory_heaven(stack_a, stack_b);
+				exit(EXIT_FAILURE);
+		}
 		i++;
 	}
 }

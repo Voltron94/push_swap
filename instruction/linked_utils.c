@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   linked_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: voltron <voltron@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:58:06 by eprieur           #+#    #+#             */
-/*   Updated: 2025/12/28 23:21:56 by voltron          ###   ########.fr       */
+/*   Updated: 2025/12/31 17:51:10 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 /*	link part	*/
 

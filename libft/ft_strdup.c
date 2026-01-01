@@ -6,11 +6,11 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:41:11 by eprieur           #+#    #+#             */
-/*   Updated: 2025/12/15 18:06:33 by eprieur          ###   ########.fr       */
+/*   Updated: 2025/12/31 17:43:47 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 static void	strcpy_(char *dst, const char *src)
 {

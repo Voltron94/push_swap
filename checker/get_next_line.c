@@ -54,15 +54,6 @@ void    stash_sort(char **stash)
     new_stash = ft_substr(*stash, i + 1, ft_strlen(*stash) - (i + 1));
     free(*stash);
     *stash = new_stash;
-	/*
-		alternative moins interessante
-		
-		if (new_stash)
-			*stash = ft_strdup(new_stash);
-		else
-			*stash = NULL;
-		free(new_stash);
-	*/
 }
 
 char	*fill_all(char **stash, int byte, char *buffer, int fd)
