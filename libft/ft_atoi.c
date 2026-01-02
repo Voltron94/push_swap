@@ -6,7 +6,7 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 17:15:22 by eprieur           #+#    #+#             */
-/*   Updated: 2026/01/02 20:30:37 by eprieur          ###   ########.fr       */
+/*   Updated: 2026/01/02 20:31:47 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_space(char c)
 	return (0);
 }
 
-void error_exit(t_list *stack_a, char **tab) 
+void	error_exit(t_list *stack_a, char **tab)
 {
 	free_tab(tab, ft_arg_len(tab));
 	ft_lstclear(&stack_a);

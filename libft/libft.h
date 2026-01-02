@@ -6,7 +6,7 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 17:30:46 by eprieur           #+#    #+#             */
-/*   Updated: 2026/01/02 20:20:37 by eprieur          ###   ########.fr       */
+/*   Updated: 2026/01/02 20:32:58 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define LIBFT_H
 
 # include "../push_swap.h"
-# include <stdlib.h>
 # include <limits.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 /* Utils */
