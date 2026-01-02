@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/02 17:15:22 by eprieur           #+#    #+#             */
+/*   Updated: 2026/01/02 20:30:37 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	is_space(char c)
@@ -7,7 +19,15 @@ static int	is_space(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr, t_list **stack_a, t_list **stack_b)
+void error_exit(t_list *stack_a, char **tab) 
+{
+	free_tab(tab, ft_arg_len(tab));
+	ft_lstclear(&stack_a);
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
+}
+
+int	ft_atoi(const char *nptr, char **tab, t_list *stack_a)
 {
 	int		i;
 	int		c;
@@ -26,14 +46,10 @@ int	ft_atoi(const char *nptr, t_list **stack_a, t_list **stack_b)
 	}
 	while (nptr[i] != '\0' && (nptr[i] >= '0' && nptr[i] <= '9'))
 	{
-		nb = nb * 10 + (nptr[i] - '0');
+		nb = nb * 10 + nptr[i] - '0';
 		i++;
 	}
-	if (nb > INT_MAX)
-	{
-		write(2, "Error\n", 6);
-		ft_memory_heaven(stack_a, stack_b);		// liberer toute la memoire actuelle
-		exit(EXIT_FAILURE);
-	}
+	if (nb > INT_MAX || nb < INT_MIN)
+		error_exit(stack_a, tab);
 	return (nb * c);
 }

@@ -1,46 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/02 17:23:39 by eprieur           #+#    #+#             */
+/*   Updated: 2026/01/02 17:23:39 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_list *cursor;
-    t_list *head;
+	t_list	*cursor;
+	t_list	*head;
 
-    cursor = *lst;
-    head = *lst;
-    if (cursor)
-    {
-        while (cursor->next != *lst && cursor->next) // != *lst //jamais si stack = 1
-        {
-            cursor = cursor->next;
-        }
-        new->previous = cursor; //le previous de new est le noeux actuelle;
-        cursor->next = new;
-        new->next = head; // on boucle ici
-        head->previous = new;       //on decale le previous, nouveau previous de la tete
-    }
-    else if (!cursor)
-        *lst = new;
+	cursor = *lst;
+	head = *lst;
+	if (cursor)
+	{
+		while (cursor->next != *lst && cursor->next)
+		{
+			cursor = cursor->next;
+		}
+		new->previous = cursor;
+		cursor->next = new;
+		new->next = head;
+		head->previous = new;
+	}
+	else if (!cursor)
+		*lst = new;
 }
-
-/*
-    Exemple sans double pointer :
-
-    void	ft_lstadd_back(t_list *lst, t_list *new)
-    {
-        t_list *cursor;
-
-        cursor = lst;
-        if (cursor)
-        {
-            while (cursor->next)
-                cursor = cursor->next
-            cursor->next = new;
-        }
-    }
-
-
-    le double pointer va permettre de dereferencer *lst vers new
-    le pointer lst va pointer vers une nouvelle adresse.
-    ft_printf("linked previous content : %i \n", new->previous->content);
-    ft_printf("linked previous content of head : %i \n", head->previous->content);
-*/

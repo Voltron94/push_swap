@@ -6,15 +6,13 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 17:58:06 by eprieur           #+#    #+#             */
-/*   Updated: 2025/12/31 17:51:10 by eprieur          ###   ########.fr       */
+/*   Updated: 2026/01/02 17:36:58 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*	link part	*/
-
-void	ft_push_h(t_list **stack, t_list *node)	// Utilite : pa/pb
+void	ft_push_h(t_list **stack, t_list *node)
 {
 	t_list	*head;
 	t_list	*tail;
@@ -40,13 +38,12 @@ void	ft_push_h(t_list **stack, t_list *node)	// Utilite : pa/pb
 	*stack = node;
 }
 
-void	ft_push_tail(t_list **stack, t_list *node)	//	Ne gere pas le cas stack = 1 element
-{													//	Il est gerer au prealable dans ra, rb
-	t_list	*head;									//	Utilite : ra/rb
+void	ft_push_tail(t_list **stack, t_list *node)
+{
+	t_list	*head;
 	t_list	*tail;
 
 	head = *stack;
-	
 	tail = head->previous;
 	tail->next = node;
 	head->previous = node;
@@ -54,9 +51,7 @@ void	ft_push_tail(t_list **stack, t_list *node)	//	Ne gere pas le cas stack = 1 
 	node->previous = tail;
 }
 
-/*	Unlink part	*/
-
-t_list	*ft_unlink_h(t_list **stack)	// Utilite : pa/pb
+t_list	*ft_unlink_h(t_list **stack)
 {
 	t_list	*head;
 	t_list	*second;
@@ -82,10 +77,10 @@ t_list	*ft_unlink_h(t_list **stack)	// Utilite : pa/pb
 	return (head);
 }
 
-t_list	*ft_unlink_tail(t_list **stack)	//	Ne gere pas le cas stack = 1 element
-{										//	Cette fonction n'est jamais cense etre appeler dans se cas
-	t_list	*head;						//	Fonction rra/rrb
-	t_list  *before_tail;
+t_list	*ft_unlink_tail(t_list **stack)
+{
+	t_list	*head;
+	t_list	*before_tail;
 	t_list	*tail;
 
 	if (!stack || !(*stack))
@@ -103,7 +98,7 @@ t_list	*ft_unlink_tail(t_list **stack)	//	Ne gere pas le cas stack = 1 element
 	}
 	tail->next = NULL;
 	tail->previous = NULL;
-	head->previous = before_tail;	//changer le previous de head, depart de la queue actuelle
+	head->previous = before_tail;
 	before_tail->next = head;
 	return (tail);
 }

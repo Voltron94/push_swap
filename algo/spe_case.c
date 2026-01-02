@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   spe_case.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/02 17:08:40 by eprieur           #+#    #+#             */
+/*   Updated: 2026/01/02 17:08:41 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	is_sort(t_list *stack, int size)
@@ -14,10 +26,12 @@ int	is_sort(t_list *stack, int size)
 	return (1);
 }
 
-void	two_case(t_list **stack_a, t_list **stack_b)
+void	spe_mov(t_list **stack_a, t_list **stack_b, int size)
 {
-	if ((*stack_a)->index > (*stack_a)->next->index)
+	if (size == 2 && (*stack_a)->index > (*stack_a)->next->index)
 		swap(stack_a, stack_b, 'a');
+	else if (size == 3)
+		three_case(stack_a, stack_b);
 }
 
 void	three_case_next(t_list **stack_a, t_list **stack_b)

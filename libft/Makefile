@@ -3,7 +3,6 @@ CFILES = ft_arg_len.c \
          ft_lstadd_back.c \
          ft_lstclear.c \
          ft_lstnew.c \
-         ft_lst_rotate.c \
          ft_lstsize.c \
          ft_split.c \
          ft_strdup.c \
