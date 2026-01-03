@@ -51,10 +51,10 @@ Elle exprime la vitesse a la quel un algorithme va executer sont programme.<br>
 
 **Quel est le principe d'un radix sort binaire ?**
 
-Radix sort n'est pas forcement binaire il en existe plusieur variante, alors pourquoi avoir choisis le trie binaire ?
+Radix sort n'est pas forcément binaire, il en existe plusieurs variantes, alors pourquoi avoir choisi le tri binaire ?
 
-Il est le meilleur compromis, là où les autres radix aurait besoin de plus de 2 pile.
-Un radix décimal rangerait dans chaque catégorie (de 0 à 9) chaque nombre en passant d'abord par les unités et ensuite les centaines, dizaines, etc.
+Il est le meilleur compromis, là où les autres radix auraient besoin de plus de 2 piles.
+Un radix décimal rangerait dans chaque catégorie (de 0 à 9) chaque nombre en passant d'abord par les unités et ensuite dizaines, centaines, etc.
 Ce qui demanderait donc plus de stack ou serait plus complexe a faire.
 
 L'algorithme de notre push swap tourne ici avec radix sort en recherche binaire, de **compliexite O(n log n)**<br>
@@ -90,9 +90,9 @@ Resultat O(n log n)
   while (i <= max_bit) // jusqu'a n bit
 	{
         //Boucle chaque element
-          //push l'element dans la stack b si le bit etudie est egal a 0
-          // sinon le premiere element deviens le dernier
-        //Tout les element envoyer dans la stack B revienne dans la stack A
+          // push b, envoie l'élément dans la stack B si le bit étudié est égal à 0
+          // sinon rotation,le premier élément devient le dernier
+        //Tous les éléments envoyés dans la stack B reviennent dans la stack A
         i++;
 	}
   ```
