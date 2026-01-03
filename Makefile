@@ -14,18 +14,18 @@ CFILE =	push_swap.c \
 		algo/spe_case.c
 OBJS = $(CFILE:.c=.o)
 
-#Flag and name
+#Flag et nom
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 
-#Other library
+#Librairie
 
 LIBFT = libft/libft.a
 PRINTF = ft_printf/libftprintf.a
 INCLUDES = -I libft -I ft_printf
 
-#colors
+#Couleur
 GREEN   := \033[0;32m
 YELLOW  := \033[0;33m
 BLUE    := \033[0;34m
