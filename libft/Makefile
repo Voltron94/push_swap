@@ -13,19 +13,23 @@ CFILES = ft_arg_len.c \
 OFILES = $(CFILES:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
+#colors
+GREEN   := \033[0;32m
+YELLOW  := \033[0;33m
+RESET   := \033[0m
 
 all: $(NAME)
 
 $(NAME): $(OFILES) 
-	@echo [ Archivage... ]
+	@printf "$(GREEN)[Archivage] Archivage libft ...$(RESET)\n"
 	ar rcs $@ $^
 
 clean:
-	@echo [ Nettoyage fichiés objets... ]
+	@printf "$(YELLOW)[Nettoyage] Nettoyage fichiés objets ...$(RESET)\n"
 	$(RM) $(OFILES)
 
 fclean:
-	@echo [ Nettoyage archive... ]
+	@printf "$(YELLOW)[Nettoyage] Nettoyage global libft ...$(RESET)\n"
 	$(RM) $(NAME) $(OFILES)
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:31:18 by eprieur           #+#    #+#             */
-/*   Updated: 2026/01/02 20:32:45 by eprieur          ###   ########.fr       */
+/*   Updated: 2026/01/03 16:40:01 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,3 @@ int	main(int argc, char **argv)
 	radix(&stack_a, &stack_b);
 	ft_memory_heaven(&stack_a, &stack_b);
 }
-// ft_print_linked(stack_a);
-// void	ft_print_linked(t_list *lst)
-// {
-// 	t_list	*cursor;
-
-// 	cursor = lst;
-// 	if (!lst)
-// 		return ;
-// 	ft_printf("linked content : %i \n", cursor->content);
-// 	if (cursor->next)
-// 		cursor = cursor->next;
-// 	while (cursor != lst)
-// 	{
-// 		ft_printf("linked content : %i \n", cursor->content);
-// 		cursor = cursor->next;
-// 	}
-// }
